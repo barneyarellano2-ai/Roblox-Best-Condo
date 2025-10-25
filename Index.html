@@ -1,2 +1,124 @@
 # Roblox-Best-Condo
 For beaming
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Roblox Condo</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'roblox-pink': '#FFC0CB', // Classic light pink
+                        'condo-accent': '#C084FC', // Violet/Fuchsia accent
+                        'condo-bg': '#FDF4FF', // Very light background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a little extra flair */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #C084FC; /* Purple-pink for the thumb */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body class="bg-condo-bg font-sans min-h-screen flex justify-center items-start pt-10 pb-10">
+
+    <main class="w-full max-w-sm mx-4">
+        <!-- Header Card -->
+        <header class="text-center mb-8 p-6 bg-white rounded-xl shadow-2xl shadow-condo-accent/30 border-t-8 border-condo-accent transform transition duration-300 hover:scale-[1.02]">
+            <h1 class="text-4xl font-extrabold text-condo-accent mb-2 tracking-tight">
+                BEST ROBLOX CONDO
+            </h1>
+            <p class="text-gray-500 text-lg">
+                Your portal to the best hangout on Roblox.
+            </p>
+        </header>
+
+        <!-- Links Container -->
+        <section id="link-list" class="space-y-4">
+            <!-- Links will be injected here by JavaScript -->
+        </section>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-10 text-gray-400 text-sm">
+            &copy; 2025 Roblox Condos. Built with Pink Power.
+        </footer>
+    </main>
+
+    <script>
+        // --- Link Data ---
+        // Edit this array to change your links!
+        const links = [
+            {
+                name: "Play the Game Now!",
+                url: "https://www.roblox.com/games/your-condo-id/Your-Game-Name",
+                icon: "🎮",
+                accent: "bg-condo-accent hover:bg-condo-accent/80 text-white"
+            },
+            {
+                name: "Join Our Discord Server",
+                url: "https://discord.gg/yourserverinvite",
+                icon: "💬",
+                accent: "bg-purple-200 hover:bg-purple-300 text-purple-800"
+            },
+            {
+                name: "Follow the Developer",
+                url: "https://www.roblox.com/users/your-user-id/profile",
+                icon: "👤",
+                accent: "bg-pink-200 hover:bg-pink-300 text-pink-800"
+            },
+            {
+                name: "Roblox Group Page",
+                url: "https://www.roblox.com/groups/your-group-id/Your-Group-Name",
+                icon: "⭐",
+                accent: "bg-white hover:bg-gray-100 text-gray-700 border-2 border-gray-200"
+            }
+        ];
+
+        // --- Core Logic ---
+        const linkList = document.getElementById('link-list');
+
+        function renderLinks() {
+            linkList.innerHTML = links.map(link => `
+                <a 
+                    href="${link.url}" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="link-button block p-4 rounded-xl font-bold text-lg transition duration-200 ease-in-out transform hover:-translate-y-0.5 shadow-lg ${link.accent} flex items-center justify-between"
+                >
+                    <span class="flex items-center">
+                        <span class="text-2xl mr-3">${link.icon}</span>
+                        ${link.name}
+                    </span>
+                    <!-- Icon for external link -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-70" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                        <path d="M9 14a1 1 0 00-1 1v1a1 1 0 11-2 0v-1a1 1 0 00-1-1H4a1 1 0 00-1 1v1a3 3 0 003 3h7a3 3 0 003-3v-1a1 1 0 11-2 0v1a1 1 0 01-1 1h-4z" />
+                    </svg>
+                </a>
+            `).join('');
+        }
+
+        // Render the links when the page loads
+        document.addEventListener('DOMContentLoaded', renderLinks);
+    </script>
+</body>
+</html>
+
